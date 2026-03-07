@@ -8,6 +8,7 @@ This repository currently includes **Tasks A2-A3 scaffolds**:
 - Typed environment settings module
 - React + Vite frontend shell
 - Tailwind CSS configuration and dark theme design tokens
+- Lint/test tooling baseline and CI workflow (Task A4)
 
 ## Repository Layout
 
@@ -44,7 +45,22 @@ npm install
 npm run dev
 ```
 
+Quality checks:
+
+```powershell
+python -m pip install -r backend/requirements-dev.txt
+python -m ruff check backend
+python -m ruff format --check backend
+python -m pytest backend/tests
+
+cd frontend
+npm install
+npm run lint
+npm run test
+npm run build
+```
+
 ## Next Tasks
 
-- `A4`: add lint/test tooling and CI baseline
 - `B1`: define moon domain models and serialization tests
+- `B2`: integrate `skyfield` phase/illumination calculations
