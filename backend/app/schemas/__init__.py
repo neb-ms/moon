@@ -1,3 +1,4 @@
+from .error import ErrorBody, ErrorEnvelope
 from .moon import (
     PHASE_ICON_KEY_BY_NAME,
     PHASE_NAMES,
@@ -14,6 +15,8 @@ __all__ = [
     "CalendarDayResponse",
     "CalendarResponse",
     "DashboardResponse",
+    "ErrorBody",
+    "ErrorEnvelope",
     "PHASE_ICON_KEY_BY_NAME",
     "PHASE_NAMES",
     "PhaseIconKey",

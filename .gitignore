@@ -32,3 +32,6 @@ coverage/
 tmp/
 temp/
 *.tmp
+
+# Local astronomy data cache
+backend/data/

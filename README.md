@@ -2,18 +2,22 @@
 
 Project Lunar is a self-hosted moon dashboard and calendar app designed for a Raspberry Pi Zero 2 W.
 
-This repository currently includes **Tasks A2-A3 scaffolds**:
+This repository currently includes **Tasks A2-B5**:
 - FastAPI app entrypoint
 - `GET /health` endpoint
 - Typed environment settings module
 - React + Vite frontend shell
 - Tailwind CSS configuration and dark theme design tokens
 - Lint/test tooling baseline and CI workflow (Task A4)
+- Moon domain schemas and astronomy services (`skyfield`)
+- MVP API endpoints:
+  - `GET /api/v1/dashboard?lat&lon&date`
+  - `GET /api/v1/calendar?lat&lon&month`
 
 ## Repository Layout
 
 - `frontend/` - React + Vite + Tailwind app shell
-- `backend/` - FastAPI service scaffold (`/health` endpoint)
+- `backend/` - FastAPI service + lunar domain/API logic
 - `infra/` - deployment/runtime configuration (Nginx, systemd, tunnel)
 - `scripts/` - helper scripts for local/dev/deploy workflows
 - `docs/` - architecture, runbooks, and project documentation
@@ -35,6 +39,13 @@ Health check:
 
 ```powershell
 Invoke-WebRequest -UseBasicParsing http://127.0.0.1:8000/health
+```
+
+API smoke checks:
+
+```powershell
+Invoke-WebRequest -UseBasicParsing "http://127.0.0.1:8000/api/v1/dashboard?lat=40.7128&lon=-74.006&date=2026-03-07"
+Invoke-WebRequest -UseBasicParsing "http://127.0.0.1:8000/api/v1/calendar?lat=40.7128&lon=-74.006&month=2026-02"
 ```
 
 Run the frontend locally:
@@ -62,5 +73,5 @@ npm run build
 
 ## Next Tasks
 
-- `B1`: define moon domain models and serialization tests
-- `B2`: integrate `skyfield` phase/illumination calculations
+- `C1`: build app shell and routing state integration with backend APIs
+- `C2`: build daily dashboard hero UI components
