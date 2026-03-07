@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Sora:wght@500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --color-bg: 6 8 14;
+  --color-panel: 14 18 31;
+  --color-panel-soft: 19 25 40;
+  --color-text: 236 242 255;
+  --color-muted: 145 158 189;
+  --color-accent: 95 236 210;
+  --color-accent-warm: 255 205 105;
+  --color-edge: 78 95 132;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  @apply bg-bg font-body text-text antialiased;
+  overflow-x: hidden;
+  background-image:
+    radial-gradient(circle at 14% 12%, rgba(95, 236, 210, 0.14), transparent 38%),
+    radial-gradient(circle at 84% 2%, rgba(255, 205, 105, 0.12), transparent 34%),
+    linear-gradient(160deg, rgba(8, 11, 20, 1) 0%, rgba(4, 7, 15, 1) 100%);
+}
+
+button {
+  font: inherit;
+}
