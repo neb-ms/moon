@@ -1,0 +1,14 @@
+[Unit]
+Description=Project Lunar frontend sync service
+After=nginx.service
+Wants=nginx.service
+ConditionPathExists=/opt/project-lunar/app/frontend/dist/index.html
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+ExecStart=/usr/bin/env bash /opt/project-lunar/app/scripts/sync_frontend_dist.sh
+
+[Install]
+WantedBy=multi-user.target

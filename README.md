@@ -71,6 +71,59 @@ npm run test
 npm run build
 ```
 
+Production artifact build:
+
+```powershell
+cd frontend
+npm ci
+npm run build
+
+python -m pip install -r backend/requirements.lock
+```
+
+Backend startup command (production profile):
+
+```powershell
+cd backend
+./start_api.ps1
+```
+
+Raspberry Pi runtime provisioning (Task F2):
+
+```bash
+sudo ./scripts/provision_pi_runtime.sh
+```
+
+Install Node.js too (only if building frontend on the Pi):
+
+```bash
+sudo ./scripts/provision_pi_runtime.sh --with-node
+```
+
+Provisioning details and filesystem layout:
+- `docs/pi-runtime-provisioning.md`
+- `docs/systemd-services.md`
+- `docs/cloudflare-tunnel.md`
+- `docs/deployment-runbook.md`
+
+Dependency security checks:
+
+```powershell
+python -m pip install pip-audit
+pip-audit -r backend/requirements.txt
+
+cd frontend
+npm audit --audit-level=high
+```
+
+Secret/dependency handling notes:
+- `docs/secrets-and-dependencies.md`
+- `docs/production-artifacts.md`
+- `docs/pi-runtime-provisioning.md`
+- `docs/systemd-services.md`
+- `docs/cloudflare-tunnel.md`
+- `docs/deployment-runbook.md`
+
 ## Next Tasks
 
 - `C1`: build app shell and routing state integration with backend APIs

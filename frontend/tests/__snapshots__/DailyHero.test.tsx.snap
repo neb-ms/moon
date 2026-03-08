@@ -1,0 +1,941 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DailyHero > matches snapshot for visual regression safety 1`] = `
+<DocumentFragment>
+  <article
+    class="rounded-panel border border-edge/70 bg-panel-soft/85 p-5"
+  >
+    <div
+      class="flex flex-col gap-5 sm:flex-row sm:items-center"
+    >
+      <div
+        class="relative mx-auto w-[140px] shrink-0"
+      >
+        <div
+          class="pointer-events-none absolute inset-0 rounded-[20px] bg-accent/10 blur-xl"
+        />
+        <div
+          aria-label="Waning Gibbous moon phase"
+          class="relative rounded-[20px] border border-edge/80 bg-bg/70 p-3"
+          data-testid="pixel-moon"
+          role="img"
+        >
+          <div
+            class="grid gap-[2px]"
+            style="grid-template-columns: repeat(12, minmax(0, 1fr));"
+          >
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="false"
+              style="background-color: rgb(var(--color-edge));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="false"
+              style="background-color: rgb(var(--color-edge));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="false"
+              style="background-color: rgb(var(--color-edge));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="false"
+              style="background-color: rgb(var(--color-edge));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="false"
+              style="background-color: rgb(var(--color-edge));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="false"
+              style="background-color: rgb(var(--color-edge));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="false"
+              style="background-color: rgb(var(--color-edge));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="false"
+              style="background-color: rgb(var(--color-edge));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="false"
+              style="background-color: rgb(var(--color-edge));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="false"
+              style="background-color: rgb(var(--color-edge));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="false"
+              style="background-color: rgb(var(--color-edge));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="false"
+              style="background-color: rgb(var(--color-edge));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="false"
+              style="background-color: rgb(var(--color-edge));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="false"
+              style="background-color: rgb(var(--color-edge));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="false"
+              style="background-color: rgb(var(--color-edge));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="false"
+              style="background-color: rgb(var(--color-edge));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="true"
+              data-lit="true"
+              style="background-color: rgb(var(--color-accent-warm));"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+            <span
+              class="aspect-square rounded-[1px]"
+              data-inside="false"
+              data-lit="false"
+              style="background-color: transparent;"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="text-center sm:text-left"
+      >
+        <p
+          class="font-mono text-xs uppercase tracking-[0.2em] text-accent"
+        >
+          Today's Moon
+        </p>
+        <h2
+          class="mt-2 font-display text-4xl leading-tight"
+        >
+          Waning Gibbous
+        </h2>
+        <p
+          class="mt-2 text-lg font-medium text-text"
+        >
+          Zodiac: 
+          <span
+            class="text-accent"
+          >
+            Scorpio
+          </span>
+        </p>
+        <p
+          class="mt-2 font-mono text-xs uppercase tracking-[0.14em] text-muted"
+        >
+          82.5% illuminated
+        </p>
+      </div>
+    </div>
+    <section
+      aria-label="Daily vibe"
+      class="mt-5 rounded-2xl border border-edge/70 bg-bg/60 p-4"
+    >
+      <p
+        class="font-mono text-xs uppercase tracking-[0.2em] text-accent-warm"
+      >
+        Today's Vibe
+      </p>
+      <p
+        class="mt-2 text-sm leading-relaxed text-text"
+      >
+        Reflection supports better pacing while depth over speed brings better results.
+      </p>
+    </section>
+  </article>
+</DocumentFragment>
+`;

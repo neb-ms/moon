@@ -1,0 +1,23 @@
+[Unit]
+Description=Project Lunar API service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=lunar
+Group=lunar
+WorkingDirectory=/opt/project-lunar/app/backend
+EnvironmentFile=-/etc/project-lunar/api.env
+Environment=PATH=/opt/project-lunar/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ExecStart=/usr/bin/env bash /opt/project-lunar/app/backend/start_api.sh
+Restart=always
+RestartSec=5
+TimeoutStopSec=20
+KillSignal=SIGINT
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target

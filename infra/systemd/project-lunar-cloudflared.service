@@ -1,0 +1,20 @@
+[Unit]
+Description=Project Lunar Cloudflare Tunnel service
+After=network-online.target project-lunar-api.service
+Wants=network-online.target
+ConditionPathExists=/etc/cloudflared/config.yml
+
+[Service]
+Type=simple
+User=lunar
+Group=lunar
+ExecStart=/usr/bin/env cloudflared --no-autoupdate tunnel --config /etc/cloudflared/config.yml run
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=full
+
+[Install]
+WantedBy=multi-user.target

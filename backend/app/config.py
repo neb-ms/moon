@@ -11,6 +11,12 @@ class Settings(BaseSettings):
     api_version: str = "0.1.0"
     log_level: str = "INFO"
     cors_origins: list[str] = Field(default_factory=lambda: ["http://localhost:5173"])
+    trusted_hosts: list[str] = Field(
+        default_factory=lambda: ["localhost", "127.0.0.1", "::1", "testserver"]
+    )
+    max_request_body_bytes: int = Field(default=1_048_576, gt=0)
+    rate_limit_max_requests: int = Field(default=120, gt=0)
+    rate_limit_window_seconds: int = Field(default=60, gt=0)
 
     model_config = SettingsConfigDict(
         env_file=".env",

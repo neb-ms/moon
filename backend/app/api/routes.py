@@ -35,6 +35,7 @@ api_router = APIRouter(tags=["moon"])
     response_model=DashboardResponse,
     responses={
         status.HTTP_400_BAD_REQUEST: {"model": ErrorEnvelope},
+        status.HTTP_429_TOO_MANY_REQUESTS: {"model": ErrorEnvelope},
         status.HTTP_422_UNPROCESSABLE_ENTITY: {"model": ErrorEnvelope},
         status.HTTP_500_INTERNAL_SERVER_ERROR: {"model": ErrorEnvelope},
     },
@@ -97,6 +98,7 @@ def get_dashboard(
     response_model=CalendarResponse,
     responses={
         status.HTTP_400_BAD_REQUEST: {"model": ErrorEnvelope},
+        status.HTTP_429_TOO_MANY_REQUESTS: {"model": ErrorEnvelope},
         status.HTTP_422_UNPROCESSABLE_ENTITY: {"model": ErrorEnvelope},
         status.HTTP_500_INTERNAL_SERVER_ERROR: {"model": ErrorEnvelope},
     },

@@ -1,0 +1,32 @@
+{
+  "name": "Project Lunar",
+  "short_name": "Lunar",
+  "description": "Daily moon dashboard and lunar calendar.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#06080e",
+  "theme_color": "#06080e",
+  "categories": ["lifestyle", "weather"],
+  "icons": [
+    {
+      "src": "/icons/moon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/moon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/moon-maskable-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}
