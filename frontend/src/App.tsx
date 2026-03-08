@@ -6,6 +6,7 @@ import InstallPromptCard from "./components/InstallPromptCard";
 import LocationSetupCard from "./components/LocationSetupCard";
 import OfflineBanner from "./components/OfflineBanner";
 import { useConnectionStatus } from "./hooks/useConnectionStatus";
+import type { AppOutletContext } from "./location/appOutletContext";
 import {
   MANUAL_CITY_OPTIONS,
   clearLocationPreference,
@@ -250,6 +251,10 @@ function AppShell() {
   const showLocationSetup = hasLoadedPreference && locationPreference === null;
   const showInstallPrompt = installPromptEvent !== null && !installPromptDismissed;
   const showApiErrorToast = isOnline && apiErrorMessage !== null && !apiToastDismissed;
+  const outletContext: AppOutletContext = {
+    hasLoadedPreference,
+    locationPreference,
+  };
 
   return (
     <div className="min-h-dvh bg-bg text-text">
@@ -335,7 +340,7 @@ function AppShell() {
               requestingDeviceLocation={requestingDeviceLocation}
             />
           )}
-          <Outlet />
+          <Outlet context={outletContext} />
         </section>
 
         <nav
