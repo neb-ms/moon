@@ -111,3 +111,15 @@ curl -fsS http://127.0.0.1:8000/health
 1. `sudo ./scripts/deploy.sh --dry-run`
 2. `sudo ./scripts/deploy.sh`
 3. Validate from external network (`https://your-hostname`) and confirm service health.
+
+## 7) Backup integration (Task H2)
+
+Create a full runtime backup before major upgrades:
+
+```bash
+sudo python3 ./scripts/backup_runtime_state.py backup --backup-label pre-upgrade
+```
+
+Recovery instructions and restore workflow:
+
+- `docs/backup-recovery.md`

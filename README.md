@@ -13,6 +13,14 @@ This repository currently includes **Tasks A2-B5**:
 - MVP API endpoints:
   - `GET /api/v1/dashboard?lat&lon&date`
   - `GET /api/v1/calendar?lat&lon&month`
+- Observability baseline (Task H1):
+  - structured JSON request logs with request IDs
+  - `/health` uptime metadata
+  - `scripts/check_api_health_uptime.sh`
+- Backup/recovery baseline (Task H2):
+  - runtime config/state backup script
+  - checksum-verified restore workflow
+  - tested recovery drill
 
 ## Repository Layout
 
@@ -39,6 +47,14 @@ Health check:
 
 ```powershell
 Invoke-WebRequest -UseBasicParsing http://127.0.0.1:8000/health
+```
+
+```bash
+./scripts/check_api_health_uptime.sh
+```
+
+```bash
+python3 ./scripts/backup_runtime_state.py backup --output-dir ./tmp/backups --backup-label local-test
 ```
 
 API smoke checks:
@@ -110,6 +126,10 @@ Provisioning details and filesystem layout:
 - `docs/deployment-runbook.md`
 - `docs/accessibility-checklist.md`
 - `docs/visual-refinement.md`
+- `docs/observability.md`
+- `docs/backup-recovery.md`
+- `docs/release-checklist.md`
+- `docs/known-limitations.md`
 
 Dependency security checks:
 
@@ -130,8 +150,12 @@ Secret/dependency handling notes:
 - `docs/deployment-runbook.md`
 - `docs/accessibility-checklist.md`
 - `docs/visual-refinement.md`
+- `docs/observability.md`
+- `docs/backup-recovery.md`
+- `docs/release-checklist.md`
+- `docs/known-limitations.md`
 
 ## Next Tasks
 
-- `C1`: build app shell and routing state integration with backend APIs
-- `C2`: build daily dashboard hero UI components
+- `H3` complete: release checklist and known limitations recorded
+- Next focus: post-MVP backlog from PRD "Future Scope"

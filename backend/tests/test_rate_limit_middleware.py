@@ -68,3 +68,4 @@ def test_create_app_registers_rate_limit_middleware() -> None:
 
     middleware_names = {middleware.cls.__name__ for middleware in app.user_middleware}
     assert "RateLimitMiddleware" in middleware_names
+    assert "RequestLoggingMiddleware" in middleware_names
