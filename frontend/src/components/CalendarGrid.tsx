@@ -70,7 +70,7 @@ function CalendarGrid({ month, days, selectedDate = null, todayDate, onSelectDat
               className={`aspect-square rounded-lg border p-1 text-left transition ${
                 cell.inCurrentMonth
                   ? "border-edge/70 bg-bg/60 text-text hover:border-accent/60"
-                  : "border-edge/30 bg-bg/25 text-muted/70 hover:border-edge/50"
+                  : "border-edge/30 bg-bg/25 text-muted hover:border-edge/50"
               } ${
                 isToday ? "ring-1 ring-accent/60" : ""
               } ${

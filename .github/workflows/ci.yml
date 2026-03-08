@@ -49,6 +49,10 @@ jobs:
         run: npm ci
         working-directory: frontend
 
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+        working-directory: frontend
+
       - name: Frontend lint
         run: npm run lint
         working-directory: frontend
@@ -59,6 +63,10 @@ jobs:
 
       - name: Frontend build
         run: npm run build
+        working-directory: frontend
+
+      - name: Frontend E2E tests
+        run: npm run test:e2e
         working-directory: frontend
 
   dependency-security:

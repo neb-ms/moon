@@ -69,6 +69,9 @@ npm install
 npm run lint
 npm run test
 npm run build
+npx playwright install chromium
+npm run test:e2e
+npm run test:a11y
 ```
 
 Production artifact build:
@@ -105,6 +108,7 @@ Provisioning details and filesystem layout:
 - `docs/systemd-services.md`
 - `docs/cloudflare-tunnel.md`
 - `docs/deployment-runbook.md`
+- `docs/accessibility-checklist.md`
 
 Dependency security checks:
 
@@ -123,6 +127,7 @@ Secret/dependency handling notes:
 - `docs/systemd-services.md`
 - `docs/cloudflare-tunnel.md`
 - `docs/deployment-runbook.md`
+- `docs/accessibility-checklist.md`
 
 ## Next Tasks
 

@@ -321,7 +321,10 @@ function AppShell() {
           <Outlet />
         </section>
 
-        <nav className="fixed bottom-4 left-1/2 z-10 w-[calc(100%-2rem)] max-w-md -translate-x-1/2 rounded-full border border-edge/80 bg-panel/95 px-3 py-2 shadow-panel backdrop-blur">
+        <nav
+          aria-label="Primary navigation"
+          className="fixed bottom-4 left-1/2 z-10 w-[calc(100%-2rem)] max-w-md -translate-x-1/2 rounded-full border border-edge/80 bg-panel/95 px-3 py-2 shadow-panel backdrop-blur"
+        >
           <ul className="flex items-center justify-between gap-2">
             <li className="flex-1">
               <NavLink
@@ -350,8 +353,8 @@ function AppShell() {
             </li>
             <li className="flex-1">
               <button
-                aria-disabled="true"
-                className="w-full rounded-full px-3 py-2 text-sm text-muted transition hover:text-text"
+                className="w-full rounded-full px-3 py-2 text-sm text-muted transition disabled:cursor-not-allowed disabled:opacity-60"
+                disabled
                 type="button"
               >
                 Settings
