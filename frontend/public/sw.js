@@ -1,4 +1,4 @@
-const CACHE_VERSION = "v1";
+const CACHE_VERSION = "v2";
 const APP_SHELL_CACHE = `project-lunar-shell-${CACHE_VERSION}`;
 const STATIC_CACHE = `project-lunar-static-${CACHE_VERSION}`;
 const API_CACHE = `project-lunar-api-${CACHE_VERSION}`;
@@ -7,9 +7,9 @@ const APP_SHELL_ASSETS = [
   "/",
   "/index.html",
   "/manifest.webmanifest",
-  "/icons/moon-192.svg",
-  "/icons/moon-512.svg",
-  "/icons/moon-maskable-512.svg",
+  "/icons/moon-192.png",
+  "/icons/moon-512.png",
+  "/icons/moon-maskable-512.png",
 ];
 
 self.addEventListener("install", (event) => {
@@ -136,17 +136,32 @@ async function handleApiRequest(request) {
 async function handleStaticAssetRequest(request) {
   const cache = await caches.open(STATIC_CACHE);
   const cachedResponse = await cache.match(request);
+  const networkPromise = fetch(request)
+    .then((response) => {
+      if (response.ok) {
+        cache.put(request, response.clone());
+      }
+      return response;
+    })
+    .catch(() => null);
+
   if (cachedResponse) {
+    networkPromise.catch(() => null);
     return cachedResponse;
   }
 
-  const networkResponse = await fetch(request);
-  if (networkResponse.ok) {
-    cache.put(request, networkResponse.clone());
+  const networkResponse = await networkPromise;
+  if (networkResponse) {
+    return networkResponse;
   }
-  return networkResponse;
+
+  return new Response("Offline", {
+    status: 503,
+    statusText: "Offline",
+    headers: { "Content-Type": "text/plain; charset=utf-8" },
+  });
 }
 
 function isStaticAssetRequest(pathname) {
-  return /\.(?:js|css|svg|png|jpg|jpeg|webp|avif|woff2?)$/i.test(pathname);
+  return /\.(?:js|css|svg|png|jpg|jpeg|webp|avif|woff2?|webmanifest|ico)$/i.test(pathname);
 }

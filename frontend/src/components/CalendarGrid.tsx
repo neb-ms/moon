@@ -45,6 +45,20 @@ function CalendarGrid({ month, days, selectedDate = null, todayDate, onSelectDat
     });
   }, [days, monthStart]);
 
+  if (days.length === 0) {
+    return (
+      <div
+        className="rounded-xl border border-edge/70 bg-bg/45 p-5 text-center"
+        data-testid="calendar-empty-state"
+      >
+        <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted">No Moon Markers Yet</p>
+        <p className="mt-2 text-sm text-muted">
+          This month has not been charted yet. Try another month or refresh.
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-3" data-testid="calendar-grid">
       <div className="grid grid-cols-7 gap-1">
@@ -59,7 +73,7 @@ function CalendarGrid({ month, days, selectedDate = null, todayDate, onSelectDat
       </div>
 
       <div className="grid grid-cols-7 gap-1.5">
-        {cells.map((cell) => {
+        {cells.map((cell, index) => {
           const isToday = cell.isoDate === todayIso;
           const isSelected = selectedDate === cell.isoDate;
 
@@ -67,10 +81,10 @@ function CalendarGrid({ month, days, selectedDate = null, todayDate, onSelectDat
             <button
               aria-label={`Select ${cell.isoDate} ${cell.phaseName}`}
               aria-pressed={isSelected}
-              className={`aspect-square rounded-lg border p-1 text-left transition ${
+              className={`lunar-shell-enter aspect-square rounded-lg border p-1 text-left transition duration-200 ${
                 cell.inCurrentMonth
-                  ? "border-edge/70 bg-bg/60 text-text hover:border-accent/60"
-                  : "border-edge/30 bg-bg/25 text-muted hover:border-edge/50"
+                  ? "border-edge/70 bg-bg/60 text-text hover:-translate-y-[1px] hover:border-accent/60"
+                  : "border-edge/30 bg-bg/25 text-muted hover:-translate-y-[1px] hover:border-edge/50"
               } ${
                 isToday ? "ring-1 ring-accent/60" : ""
               } ${
@@ -82,9 +96,10 @@ function CalendarGrid({ month, days, selectedDate = null, todayDate, onSelectDat
               data-today={isToday ? "true" : "false"}
               key={cell.isoDate}
               onClick={() => onSelectDate?.(cell.isoDate)}
+              style={{ animationDelay: `${Math.min(index * 12, 280)}ms` }}
               type="button"
             >
-              <span className="block font-mono text-[10px] leading-none">{cell.date.getUTCDate()}</span>
+              <span className="block font-mono text-[11px] leading-none">{cell.date.getUTCDate()}</span>
               <MiniMoonIcon dimmed={!cell.inCurrentMonth} phaseName={cell.phaseName} />
             </button>
           );

@@ -35,6 +35,7 @@ async function expectNoAxeViolations(page: Parameters<AxeBuilder["constructor"]>
 
 test.describe("Accessibility baseline", () => {
   test.beforeEach(async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
     await page.addInitScript((preference) => {
       window.localStorage.setItem("project-lunar/location-preference", JSON.stringify(preference));
     }, locationPreference);

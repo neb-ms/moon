@@ -6,7 +6,7 @@ type InstallPromptCardProps = {
 
 function InstallPromptCard({ onDismiss, onInstall, installing }: InstallPromptCardProps) {
   return (
-    <article className="rounded-panel border border-edge/70 bg-panel-soft/85 p-4 shadow-panel">
+    <article className="lunar-surface rounded-panel border border-edge/70 bg-panel-soft/85 p-4 shadow-panel">
       <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">Install App</p>
       <p className="mt-2 text-sm text-muted">
         Add Project Lunar to your home screen for fast daily access.

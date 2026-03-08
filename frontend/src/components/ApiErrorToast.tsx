@@ -8,7 +8,7 @@ type ApiErrorToastProps = {
 function ApiErrorToast({ message, onDismiss, onRetry, retrying }: ApiErrorToastProps) {
   return (
     <div
-      className="fixed inset-x-0 top-3 z-30 mx-auto w-[calc(100%-1.5rem)] max-w-md rounded-xl border border-red-300/35 bg-red-950/90 p-3 shadow-panel backdrop-blur"
+      className="lunar-shell-enter fixed inset-x-0 top-3 z-30 mx-auto w-[calc(100%-1.5rem)] max-w-md rounded-xl border border-red-300/35 bg-red-950/90 p-3 shadow-panel backdrop-blur"
       role="alert"
     >
       <p className="text-sm text-red-100">{message}</p>

@@ -127,13 +127,14 @@ function DateDetailSheet({ day, open, onClose, onExited }: DateDetailSheetProps)
       <div
         aria-label="Moon details"
         aria-modal="true"
-        className={`w-full max-w-md rounded-t-[1.4rem] border border-edge/80 bg-panel/95 p-5 shadow-panel transition-all duration-200 ${
+        className={`lunar-surface w-full max-w-md rounded-t-[1.4rem] border border-edge/80 bg-panel/95 p-5 shadow-panel transition-all duration-200 ${
           visible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
         }`}
         onClick={(event) => event.stopPropagation()}
         ref={dialogRef}
         role="dialog"
       >
+        <div aria-hidden="true" className="mx-auto mb-4 h-1.5 w-10 rounded-full bg-edge/70" />
         <div className="flex items-start justify-between gap-3">
           <div>
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">Date Detail</p>

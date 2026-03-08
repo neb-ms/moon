@@ -109,6 +109,7 @@ Provisioning details and filesystem layout:
 - `docs/cloudflare-tunnel.md`
 - `docs/deployment-runbook.md`
 - `docs/accessibility-checklist.md`
+- `docs/visual-refinement.md`
 
 Dependency security checks:
 
@@ -128,6 +129,7 @@ Secret/dependency handling notes:
 - `docs/cloudflare-tunnel.md`
 - `docs/deployment-runbook.md`
 - `docs/accessibility-checklist.md`
+- `docs/visual-refinement.md`
 
 ## Next Tasks
 

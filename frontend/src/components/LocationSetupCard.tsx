@@ -40,7 +40,7 @@ function LocationSetupCard({
   }
 
   return (
-    <article className="rounded-panel border border-edge/70 bg-panel-soft/85 p-5 shadow-panel">
+    <article className="lunar-surface rounded-panel border border-edge/70 bg-panel-soft/85 p-5 shadow-panel">
       <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">Location Access</p>
       <h2 className="mt-3 font-display text-2xl leading-tight">Use your location for moon times</h2>
       <p className="mt-3 text-sm text-muted">
@@ -134,7 +134,7 @@ function ManualEntryForm({ message, onSaveManualCity, onSaveManualCoordinates }:
   }
 
   return (
-    <article className="rounded-panel border border-edge/70 bg-panel-soft/85 p-5 shadow-panel">
+    <article className="lunar-surface rounded-panel border border-edge/70 bg-panel-soft/85 p-5 shadow-panel">
       <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">Manual Location</p>
       <h2 className="mt-3 font-display text-2xl leading-tight">Enter a city or coordinates</h2>
 

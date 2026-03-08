@@ -12,19 +12,19 @@ function renderApp(initialPath = "/") {
 }
 
 describe("App shell routing", () => {
-  it("renders dashboard by default", () => {
+  it("renders dashboard by default", async () => {
     renderApp("/");
 
-    expect(screen.getByRole("heading", { name: "Daily Dashboard" })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { name: "Daily Dashboard" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Home" })).toBeInTheDocument();
-    expect(screen.getByText("Today's Moon")).toBeInTheDocument();
+    expect(await screen.findByText("Today's Moon")).toBeInTheDocument();
     expect(screen.getByRole("img", { name: /moon phase/i })).toBeInTheDocument();
   });
 
-  it("renders calendar view for /calendar route", () => {
+  it("renders calendar view for /calendar route", async () => {
     renderApp("/calendar");
 
-    expect(screen.getByRole("heading", { name: "Lunar Calendar" })).toBeInTheDocument();
-    expect(screen.getByText("Lunar Calendar Grid")).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { name: "Lunar Calendar" })).toBeInTheDocument();
+    expect(await screen.findByText("Lunar Calendar Grid")).toBeInTheDocument();
   });
 });

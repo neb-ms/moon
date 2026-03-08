@@ -6,7 +6,7 @@ type OfflineBannerProps = {
 function OfflineBanner({ checking, onRetry }: OfflineBannerProps) {
   return (
     <div
-      className="sticky top-2 z-20 rounded-xl border border-amber-300/30 bg-amber-950/50 px-3 py-2 backdrop-blur"
+      className="lunar-shell-enter sticky top-2 z-20 rounded-xl border border-amber-300/30 bg-amber-950/50 px-3 py-2 backdrop-blur"
       role="status"
     >
       <div className="flex items-center justify-between gap-3">

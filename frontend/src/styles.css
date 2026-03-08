@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Sora:wght@500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -38,6 +36,39 @@ body {
     linear-gradient(160deg, rgba(8, 11, 20, 1) 0%, rgba(4, 7, 15, 1) 100%);
 }
 
+@keyframes lunarFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes lunarFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes lunarShimmer {
+  from {
+    background-position: -200% 0;
+  }
+
+  to {
+    background-position: 200% 0;
+  }
+}
+
 button {
   font: inherit;
 }
@@ -49,4 +80,76 @@ select:focus-visible,
 textarea:focus-visible {
   outline: 2px solid rgb(var(--color-accent));
   outline-offset: 2px;
+}
+
+.lunar-shell-enter {
+  animation: lunarFadeUp 420ms ease-out both;
+}
+
+.lunar-stagger > * {
+  opacity: 0;
+  animation: lunarFadeUp 460ms ease-out both;
+}
+
+.lunar-stagger > :nth-child(1) {
+  animation-delay: 60ms;
+}
+
+.lunar-stagger > :nth-child(2) {
+  animation-delay: 120ms;
+}
+
+.lunar-stagger > :nth-child(3) {
+  animation-delay: 180ms;
+}
+
+.lunar-stagger > :nth-child(4) {
+  animation-delay: 240ms;
+}
+
+.lunar-surface {
+  position: relative;
+  overflow: hidden;
+}
+
+.lunar-surface::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(95, 236, 210, 0.4) 28%,
+    rgba(255, 205, 105, 0.34) 70%,
+    transparent
+  );
+}
+
+.lunar-shimmer {
+  background-image: linear-gradient(
+    100deg,
+    rgba(78, 95, 132, 0.26) 20%,
+    rgba(145, 158, 189, 0.34) 38%,
+    rgba(78, 95, 132, 0.26) 55%
+  );
+  background-size: 220% 100%;
+  animation: lunarShimmer 1.6s linear infinite;
+}
+
+.lunar-float {
+  animation: lunarFloat 3.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0ms !important;
+    scroll-behavior: auto !important;
+  }
 }

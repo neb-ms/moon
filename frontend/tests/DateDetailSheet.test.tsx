@@ -11,8 +11,10 @@ function renderCalendarRoute() {
   );
 }
 
-function openDay(date: string) {
-  const trigger = screen.getByRole("button", { name: new RegExp(`select ${date}`, "i") });
+async function openDay(date: string) {
+  const trigger = await screen.findByRole("button", {
+    name: new RegExp(`select ${date}`, "i"),
+  });
   fireEvent.click(trigger);
   return trigger;
 }
@@ -20,7 +22,7 @@ function openDay(date: string) {
 describe("Date detail bottom sheet", () => {
   it("opens from a calendar day tap and closes with the X button", async () => {
     renderCalendarRoute();
-    openDay("2026-03-14");
+    await openDay("2026-03-14");
 
     const dialog = await screen.findByRole("dialog", { name: "Moon details" });
     expect(within(dialog).getByText("Waning Gibbous")).toBeInTheDocument();
@@ -35,7 +37,7 @@ describe("Date detail bottom sheet", () => {
 
   it("closes on Escape and returns focus to the selected day", async () => {
     renderCalendarRoute();
-    const trigger = openDay("2026-03-09");
+    const trigger = await openDay("2026-03-09");
 
     await screen.findByRole("dialog", { name: "Moon details" });
     fireEvent.keyDown(document, { key: "Escape" });
@@ -51,7 +53,7 @@ describe("Date detail bottom sheet", () => {
 
   it("keeps focus trapped inside the sheet on Tab navigation", async () => {
     renderCalendarRoute();
-    openDay("2026-03-22");
+    await openDay("2026-03-22");
 
     const dialog = await screen.findByRole("dialog", { name: "Moon details" });
     const closeButton = within(dialog).getByRole("button", { name: "Close details" });

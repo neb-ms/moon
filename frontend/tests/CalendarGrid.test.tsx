@@ -31,6 +31,13 @@ function getDayCell(container: HTMLElement, date: string): HTMLButtonElement {
 }
 
 describe("CalendarGrid", () => {
+  it("renders personality empty state when no days are provided", () => {
+    const { getByTestId, getByText } = render(<CalendarGrid days={[]} month="2026-08" />);
+
+    expect(getByTestId("calendar-empty-state")).toBeInTheDocument();
+    expect(getByText("No Moon Markers Yet")).toBeInTheDocument();
+  });
+
   it("renders month boundary days before and after the current month", () => {
     const { container } = render(<CalendarGrid days={buildMonthDays("2026-08")} month="2026-08" />);
 

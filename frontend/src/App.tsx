@@ -1,13 +1,10 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 import { NavLink, Navigate, Outlet, Route, Routes, useLocation } from "react-router-dom";
+
 import ApiErrorToast from "./components/ApiErrorToast";
-import CalendarGrid, { type CalendarPhaseDay } from "./components/CalendarGrid";
-import DateDetailSheet from "./components/DateDetailSheet";
-import DailyHero from "./components/DailyHero";
 import InstallPromptCard from "./components/InstallPromptCard";
 import LocationSetupCard from "./components/LocationSetupCard";
 import OfflineBanner from "./components/OfflineBanner";
-import ScientificStatsCard from "./components/ScientificStatsCard";
 import { useConnectionStatus } from "./hooks/useConnectionStatus";
 import {
   MANUAL_CITY_OPTIONS,
@@ -16,41 +13,52 @@ import {
   saveLocationPreference,
   type LocationPreference,
 } from "./location/locationPreference";
-import {
-  hasDismissedInstallPrompt,
-  setDismissedInstallPrompt,
-} from "./pwa/installPrompt";
+import { hasDismissedInstallPrompt, setDismissedInstallPrompt } from "./pwa/installPrompt";
 
-const heroSample = {
-  phaseName: "Waning Gibbous",
-  zodiacSign: "Scorpio",
-  illuminationPct: 82.46,
-  moonriseLocal: "2026-03-07T22:39:26.695968-05:00",
-  moonsetLocal: "2026-03-07T07:54:26.220278-05:00",
-  vibe: "Reflection supports better pacing while depth over speed brings better results.",
-};
-
-const demoMonth = "2026-03";
-const phaseCycle = [
-  "New Moon",
-  "Waxing Crescent",
-  "First Quarter",
-  "Waxing Gibbous",
-  "Full Moon",
-  "Waning Gibbous",
-  "Last Quarter",
-  "Waning Crescent",
-];
+const loadDashboardView = () => import("./views/DashboardView");
+const loadCalendarView = () => import("./views/CalendarView");
+const DashboardView = lazy(loadDashboardView);
+const CalendarView = lazy(loadCalendarView);
 
 function App() {
   return (
     <Routes>
       <Route element={<AppShell />}>
-        <Route element={<DashboardView />} index />
-        <Route element={<CalendarView />} path="/calendar" />
+        <Route
+          element={
+            <Suspense fallback={<RouteLoadingState message="Loading dashboard..." />}>
+              <DashboardView />
+            </Suspense>
+          }
+          index
+        />
+        <Route
+          element={
+            <Suspense fallback={<RouteLoadingState message="Loading lunar calendar..." />}>
+              <CalendarView />
+            </Suspense>
+          }
+          path="/calendar"
+        />
         <Route element={<Navigate replace to="/" />} path="*" />
       </Route>
     </Routes>
+  );
+}
+
+type RouteLoadingStateProps = {
+  message: string;
+};
+
+function RouteLoadingState({ message }: RouteLoadingStateProps) {
+  return (
+    <article className="lunar-surface rounded-panel border border-edge/70 bg-panel-soft/85 p-5">
+      <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">Preparing View</p>
+      <div className="mt-3 h-2 w-full overflow-hidden rounded-full border border-edge/60 bg-bg/60">
+        <span aria-hidden="true" className="lunar-shimmer block h-full w-full opacity-70" />
+      </div>
+      <p className="mt-3 text-sm text-muted">{message}</p>
+    </article>
   );
 }
 
@@ -58,6 +66,9 @@ function AppShell() {
   const routeLocation = useLocation();
   const onDashboard = routeLocation.pathname === "/";
   const heading = onDashboard ? "Daily Dashboard" : "Lunar Calendar";
+  const subheading = onDashboard
+    ? "At-a-glance moon guidance tuned to your saved location."
+    : "Scan the month and tap any day for moon detail.";
   const [hasLoadedPreference, setHasLoadedPreference] = useState(false);
   const [locationPreference, setLocationPreference] = useState<LocationPreference | null>(null);
   const [setupMode, setSetupMode] = useState<"prompt" | "manual">("prompt");
@@ -102,6 +113,22 @@ function AppShell() {
       window.removeEventListener("appinstalled", onAppInstalled);
     };
   }, []);
+
+  useEffect(() => {
+    const timerId = window.setTimeout(() => {
+      void (onDashboard ? loadCalendarView() : loadDashboardView());
+    }, 550);
+
+    return () => {
+      window.clearTimeout(timerId);
+    };
+  }, [onDashboard]);
+
+  useEffect(() => {
+    if (apiErrorMessage) {
+      setApiToastDismissed(false);
+    }
+  }, [apiErrorMessage]);
 
   function persistLocationPreference(nextPreference: LocationPreference) {
     setLocationPreference(nextPreference);
@@ -184,16 +211,6 @@ function AppShell() {
     setLocationMessage(null);
   }
 
-  const showLocationSetup = hasLoadedPreference && locationPreference === null;
-  const showInstallPrompt = installPromptEvent !== null && !installPromptDismissed;
-  const showApiErrorToast = isOnline && apiErrorMessage !== null && !apiToastDismissed;
-
-  useEffect(() => {
-    if (apiErrorMessage) {
-      setApiToastDismissed(false);
-    }
-  }, [apiErrorMessage]);
-
   function onDismissInstallPrompt() {
     setDismissedInstallPrompt(true);
     setInstallPromptDismissed(true);
@@ -230,6 +247,10 @@ function AppShell() {
     setApiToastDismissed(true);
   }
 
+  const showLocationSetup = hasLoadedPreference && locationPreference === null;
+  const showInstallPrompt = installPromptEvent !== null && !installPromptDismissed;
+  const showApiErrorToast = isOnline && apiErrorMessage !== null && !apiToastDismissed;
+
   return (
     <div className="min-h-dvh bg-bg text-text">
       {showApiErrorToast && (
@@ -240,18 +261,14 @@ function AppShell() {
           retrying={apiStatus === "checking"}
         />
       )}
-      <main className="mx-auto flex min-h-dvh w-full max-w-md flex-col px-4 pb-28 pt-6 sm:px-6">
+      <main className="lunar-shell-enter mx-auto flex min-h-dvh w-full max-w-md flex-col px-4 pb-28 pt-6 sm:px-6">
         {!isOnline && (
           <OfflineBanner checking={apiStatus === "checking"} onRetry={onRetryConnection} />
         )}
-        <header className="rounded-panel border border-edge/70 bg-panel/80 p-5 shadow-panel backdrop-blur">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
-            Project Lunar
-          </p>
+        <header className="lunar-surface rounded-panel border border-edge/70 bg-panel/80 p-5 shadow-panel backdrop-blur">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">Project Lunar</p>
           <h1 className="mt-3 font-display text-3xl leading-tight">{heading}</h1>
-          <p className="mt-2 text-sm text-muted">
-            Mobile-first app shell with route state for dashboard and calendar views.
-          </p>
+          <p className="mt-2 text-sm text-muted">{subheading}</p>
           <div className="mt-3 flex items-center justify-between gap-2 rounded-lg border border-edge/70 bg-bg/35 px-3 py-2">
             <p className="text-xs text-muted">
               Location:{" "}
@@ -272,10 +289,10 @@ function AppShell() {
           <div className="mt-5 flex gap-2">
             <NavLink
               className={({ isActive }) =>
-                `rounded-full border px-4 py-2 text-sm transition ${
+                `rounded-full border px-4 py-2 text-sm transition duration-200 ${
                   isActive
                     ? "border-accent bg-accent/10 text-accent"
-                    : "border-edge/70 text-muted hover:border-accent/50 hover:text-text"
+                    : "border-edge/70 text-muted hover:-translate-y-[1px] hover:border-accent/50 hover:text-text"
                 }`
               }
               end
@@ -285,10 +302,10 @@ function AppShell() {
             </NavLink>
             <NavLink
               className={({ isActive }) =>
-                `rounded-full border px-4 py-2 text-sm transition ${
+                `rounded-full border px-4 py-2 text-sm transition duration-200 ${
                   isActive
                     ? "border-accent bg-accent/10 text-accent"
-                    : "border-edge/70 text-muted hover:border-accent/50 hover:text-text"
+                    : "border-edge/70 text-muted hover:-translate-y-[1px] hover:border-accent/50 hover:text-text"
                 }`
               }
               to="/calendar"
@@ -298,7 +315,7 @@ function AppShell() {
           </div>
         </header>
 
-        <section className="mt-6 flex-1 space-y-4">
+        <section className="lunar-stagger mt-6 flex-1 space-y-4">
           {showInstallPrompt && (
             <InstallPromptCard
               installing={installingApp}
@@ -323,13 +340,13 @@ function AppShell() {
 
         <nav
           aria-label="Primary navigation"
-          className="fixed bottom-4 left-1/2 z-10 w-[calc(100%-2rem)] max-w-md -translate-x-1/2 rounded-full border border-edge/80 bg-panel/95 px-3 py-2 shadow-panel backdrop-blur"
+          className="lunar-surface fixed bottom-4 left-1/2 z-10 w-[calc(100%-2rem)] max-w-md -translate-x-1/2 rounded-full border border-edge/80 bg-panel/95 px-3 py-2 shadow-panel backdrop-blur"
         >
           <ul className="flex items-center justify-between gap-2">
             <li className="flex-1">
               <NavLink
                 className={({ isActive }) =>
-                  `block w-full rounded-full px-3 py-2 text-center text-sm transition ${
+                  `block w-full rounded-full px-3 py-2 text-center text-sm transition duration-200 ${
                     isActive ? "bg-accent/15 text-accent" : "text-muted hover:text-text"
                   }`
                 }
@@ -342,7 +359,7 @@ function AppShell() {
             <li className="flex-1">
               <NavLink
                 className={({ isActive }) =>
-                  `block w-full rounded-full px-3 py-2 text-center text-sm transition ${
+                  `block w-full rounded-full px-3 py-2 text-center text-sm transition duration-200 ${
                     isActive ? "bg-accent/15 text-accent" : "text-muted hover:text-text"
                   }`
                 }
@@ -365,136 +382,6 @@ function AppShell() {
       </main>
     </div>
   );
-}
-
-function DashboardView() {
-  return (
-    <div className="space-y-4">
-      <DailyHero
-        illuminationPct={heroSample.illuminationPct}
-        phaseName={heroSample.phaseName}
-        vibe={heroSample.vibe}
-        zodiacSign={heroSample.zodiacSign}
-      />
-      <ScientificStatsCard
-        illuminationPct={heroSample.illuminationPct}
-        moonriseLocal={heroSample.moonriseLocal}
-        moonsetLocal={heroSample.moonsetLocal}
-        status="ready"
-      />
-    </div>
-  );
-}
-
-function CalendarView() {
-  const calendarDays = useMemo(() => buildMockCalendarDays(demoMonth), []);
-  const calendarDayMap = useMemo(
-    () => new Map(calendarDays.map((day) => [day.date, day])),
-    [calendarDays],
-  );
-  const [selectedDate, setSelectedDate] = useState<string | null>(calendarDays[8]?.date ?? null);
-  const [detailDate, setDetailDate] = useState<string | null>(null);
-  const [detailOpen, setDetailOpen] = useState(false);
-  const restoreFocusDateRef = useRef<string | null>(null);
-
-  const detailDay = useMemo(() => {
-    if (!detailDate) {
-      return null;
-    }
-
-    return (
-      calendarDayMap.get(detailDate) ?? {
-        date: detailDate,
-        phaseName: "New Moon",
-        illuminationPct: 0,
-        zodiacSign: "Unknown",
-      }
-    );
-  }, [calendarDayMap, detailDate]);
-
-  function handleSelectDate(date: string) {
-    setSelectedDate(date);
-    setDetailDate(date);
-    setDetailOpen(true);
-  }
-
-  function handleCloseDetail() {
-    setDetailOpen(false);
-  }
-
-  function handleDetailExited() {
-    restoreFocusDateRef.current = selectedDate;
-    setDetailDate(null);
-  }
-
-  useEffect(() => {
-    if (detailOpen || detailDate !== null) {
-      return;
-    }
-
-    const focusDate = restoreFocusDateRef.current;
-    if (!focusDate) {
-      return;
-    }
-
-    const dayButton = document.querySelector<HTMLButtonElement>(`button[data-date="${focusDate}"]`);
-    dayButton?.focus();
-    restoreFocusDateRef.current = null;
-  }, [detailDate, detailOpen]);
-
-  return (
-    <>
-      <article className="rounded-panel border border-edge/70 bg-panel-soft/85 p-5">
-        <div className="flex items-center justify-between gap-3">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
-            Lunar Calendar Grid
-          </p>
-          <p className="text-xs text-muted">Tap a day</p>
-        </div>
-        <div className="mt-4">
-          <CalendarGrid
-            days={calendarDays}
-            month={demoMonth}
-            onSelectDate={handleSelectDate}
-            selectedDate={selectedDate}
-          />
-        </div>
-        {selectedDate && (
-          <p className="mt-4 text-xs text-muted">
-            Selected: <span className="font-mono text-text">{selectedDate}</span>
-          </p>
-        )}
-      </article>
-      {detailDay && (
-        <DateDetailSheet
-          day={detailDay}
-          onClose={handleCloseDetail}
-          onExited={handleDetailExited}
-          open={detailOpen}
-        />
-      )}
-    </>
-  );
-}
-
-function buildMockCalendarDays(month: string): CalendarPhaseDay[] {
-  const [yearToken, monthToken] = month.split("-");
-  const year = Number(yearToken);
-  const monthIndex = Number(monthToken) - 1;
-  const dayCount = new Date(year, monthIndex + 1, 0).getDate();
-
-  return Array.from({ length: dayCount }, (_, index) => {
-    const day = index + 1;
-    const date = `${month}-${String(day).padStart(2, "0")}`;
-    const phaseName = phaseCycle[index % phaseCycle.length];
-
-    return {
-      date,
-      phaseName,
-      illuminationPct: Math.round((((index * 11) % 100) + 0.5) * 10) / 10,
-      zodiacSign: "Scorpio",
-    };
-  });
 }
 
 function formatCoordinateLabel(lat: number, lon: number): string {
